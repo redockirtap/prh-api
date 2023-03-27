@@ -5,6 +5,9 @@ ruby "3.1.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
+gem 'dotenv-rails'
+gem 'active_model_serializers'
+gem 'rest-client', '~> 2.1'
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
