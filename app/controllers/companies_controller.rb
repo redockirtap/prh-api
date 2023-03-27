@@ -2,10 +2,10 @@ class CompaniesController < ApplicationController
   def index
     fetch_companies
 
-    @postal_codes = PostalCode.all
+    @postal_codes = PostalCode.all.includes(:companies)
 
     if @postal_codes
-      render json: @postal_codes, status: :ok
+      render json: @postal_codes, each_serializer: PostalCodeSerializer, status: :ok
     else
       render json: { 'error': @companies.errors.full_messages.to_sentence }, status: 422
     end
