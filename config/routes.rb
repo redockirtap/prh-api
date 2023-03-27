@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root 'companies#index'
+  get '/postal_codes/:postal_code/companies',
+      to: 'companies#show', param: :postal_code, defaults: { format: 'json' }
 end
