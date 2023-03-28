@@ -3,14 +3,14 @@ This API is used to fetch open data about companies registered in Helsinki from 
 
 ## Environment and Gems
 1. Environment:
-  * Ruby 3.1.2p20
-  * Rails 7.0.4.3
-  * PostgreSQL 14.7
+    * Ruby 3.1.2p20
+    * Rails 7.0.4.3
+    * PostgreSQL 14.7
 
 2. Gems:
-  * REST-client
-  * dotenv
-  * Active Model Serializers
+    * REST-client
+    * dotenv
+    * Active Model Serializers
 ---------
 ## Run and Deploy
 To run the app clone the repo locally and do next steps.
@@ -25,8 +25,8 @@ rails s
 To get the data any REST client can be used (e.g. cURL, Postman Desktop). For instance, below are examples of using Postman Desktop.
 
 1. Get brief information about postal codes and companies, registered at given postal codes:
-
-  * GET request to `http://localhost:3000/` and response example:
+    * GET request to `http://localhost:3000/` and response example:
+  
 ```
 [
     {
@@ -58,10 +58,9 @@ To get the data any REST client can be used (e.g. cURL, Postman Desktop). For in
     ....
 ]
 ```
----------
 
 2. Get information about all the companies for a particular postal code:
-* GET request to `http://localhost:3000/postal_codes/:postal_code/companies` and response example
+    * GET request to `http://localhost:3000/postal_codes/:postal_code/companies` and response example:
 
 ```
 [
