@@ -29,7 +29,7 @@ class CompaniesController < ApplicationController
   private
 
   def fetch_companies
-    PrhDataService.new.fetch_data if Company.all.empty?
+    PrhDataService.new.fetch_data
   end
 
   def postal_code_params
