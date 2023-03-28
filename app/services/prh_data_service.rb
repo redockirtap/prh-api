@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rest-client'
 
 class PrhDataService
@@ -19,30 +21,28 @@ class PrhDataService
   end
 
   def save_postal_codes(postal_code)
-    return if PostalCode.find_by(postal_code: postal_code)
+    return if PostalCode.find_by(postal_code:)
 
-    @postal_code = PostalCode.new(postal_code: postal_code)
-    @postal_code.update(postal_code: postal_code)
+    PostalCode.create(postal_code:)
   end
 
   def save_companies(companies, postal_code)
     companies.each do |company|
       next if Company.find_by(business_id: company['businessId'])
 
-      update_company_record(company, postal_code)
+      create_company_record(company, postal_code)
     end
   end
 
-  def update_company_record(company, postal_code)
-    @postal_code = PostalCode.find_by(postal_code: postal_code)
-    @company = Company.new(business_id: company['businessId'], postal_code_id: @postal_code.id)
+  def create_company_record(company, postal_code)
+    @postal_code = PostalCode.find_by(postal_code:)
 
-    @company.update(name: company['name'],
-                    business_id: company['businessId'],
-                    registration_date: company['registrationDate'],
-                    company_form: company['companyForm'],
-                    details_uri: company['detailsUri'],
-                    postal_code_id: @postal_code.id)
+    Company.create(name: company['name'],
+                   business_id: company['businessId'],
+                   registration_date: company['registrationDate'],
+                   company_form: company['companyForm'],
+                   details_uri: company['detailsUri'],
+                   postal_code_id: @postal_code.id)
   end
 
   def postal_codes

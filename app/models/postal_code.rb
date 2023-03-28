@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostalCode < ApplicationRecord
   has_many :companies
 

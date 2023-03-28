@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostalCodeSerializer < ActiveModel::Serializer
   attributes :id, :postal_code, :companies
 
