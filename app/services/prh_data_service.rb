@@ -4,9 +4,8 @@ require 'rest-client'
 
 class PrhDataService
   def fetch_data
-    postal_codes.each_with_object([]) do |postal_code, companies|
-      postal_code_companies = fetch_companies(postal_code)
-      postal_code_companies.each { |company| companies << company }
+    postal_codes.map do |postal_code|
+      companies = fetch_companies(postal_code)
       save_postal_codes(postal_code)
       save_companies(companies, postal_code)
     end
